@@ -1,0 +1,161 @@
+body {
+    background-color: #222;
+    -webkit-box-shadow: inset 0 0 300px #333;
+    -moz-box-shadow: inset 0 0 300px #333;
+    box-shadow: inset 0 0 300px #333;
+}
+
+.landing-button {
+  z-index: 10;
+}
+
+#landing-header {
+  z-index: 2;
+  position: relative;
+  text-align: center;
+  padding-top: 38vh;
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.4),
+               0px -5px 35px rgba(255,255,255,0.5);
+}
+
+#landing-header h1 {
+  z-index: 2;
+  position: absolute;
+  top: 60vh;
+  left: 40vw;
+  color: #fff;
+  font-family: 'Cabin Sketch', cursive;
+  font-weight: 700;
+  font-size: 6em;
+  letter-spacing: .2em;
+}
+
+#landing-header p {
+  position: absolute;
+  top: 60vh;
+  left: 39.3vw;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 1.2em;
+  letter-spacing: .1em;
+}
+
+#landing-button {
+  position: absolute;
+  top: 20vh;
+  left: 40vw;
+  width: 49%;
+  background-color: #222;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: 'Yellowtail', sans-serif;
+  font-size: 3.3em;
+  border: 4px solid white;
+  text-shadow: none;
+  box-shadow: 2px 8px 25px rgba(0,0,0,0.4),
+               0px -5px 25px rgba(255,255,255,0.3);
+}
+
+#landing-button:hover {
+  background-color: #fff;
+  color: #333;
+  border: 4px solid white;
+  box-shadow: 2px 12px 25px rgba(0,0,0,0.4),
+               0px -8px 25px rgba(255,255,255,0.3);
+}
+
+#landing-button:active {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  border: 4px solid white;
+}
+
+#landing-button:focus {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 1);
+  color: #222;
+  border: 4px solid white;
+}
+
+.snob {
+  position: absolute;
+  z-index: 0;
+  top: 5vh;
+  left: 33vw;
+  font-family: 'Yellowtail', cursive;
+  color: white; 
+  opacity: 0.9;
+  font-size: 1.3em;
+  font-weight: 200;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url(/assets/nighttime.jpg);
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(/assets/sayan-nath-165552.jpg);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(/assets/sunrise-tent.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(/assets/sunset-campfire.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(/assets/breakfast.jpg);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-out;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

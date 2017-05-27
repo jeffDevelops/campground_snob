@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Campground Snob</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Open+Sans:300,400,600|Yellowtail"> 
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+    <body>
+
+<div class="container">
+    <% if(error && error.length > 0) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>    
+        </div>
+    <% }; %>
+    <% if(success && success.length > 0) { %>
+         <div class="alert alert-success" role="alert">
+            <%= success %>    
+        </div>
+    <% }; %>
+</div>
+
+
+
