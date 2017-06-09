@@ -3,6 +3,7 @@
 ///////////////////////////////////////////////
 
     var methodOverride  = require('method-override'), //Overrides form method from POST to PUT
+        compression     = require('compression'),
         LocalStrategy   = require('passport-local'), //Username/password authentication strategy
         bodyParser      = require('body-parser'), 
         mongoose        = require('mongoose'),
@@ -42,6 +43,9 @@
 
 //Empty and seed database with sample data (see seeds.js)    
 //seedDB();
+
+//Use gzip compression with compatible browsers for performance
+app.use(compression());
 
 //Import body-parser
 app.use(bodyParser.urlencoded({extended: true}));

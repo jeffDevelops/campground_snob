@@ -5,10 +5,12 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
     "connect-flash": "^0.1.1",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
+    "gulp": "^3.9.1",
     "method-override": "^2.3.8",
     "mongoose": "^4.9.8",
     "passport": "^0.3.2",
@@ -16,7 +18,16 @@
     "passport-local-mongoose": "^4.0.0",
     "request": "^2.81.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.0",
+    "imagemin-jpeg-recompress": "^5.1.0",
+    "imagemin-pngquant": "^5.0.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

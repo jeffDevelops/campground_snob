@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html id="index">
     <head>
         <title>Campground Snob</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Open+Sans:300,400,600|Yellowtail" rel="stylesheet"> 
-        <link rel="stylesheet" href="/stylesheets/main.css">
+        <link rel="stylesheet" href="./dist/stylesheets/main.css">
     </head>
-    <body id="index">
+    <body>
     
     <div class="navigation blur-effect not-blurry">
         <div class="container-third1 blur-effect not-blurry">
-            <div class="logo">
-                <a tabindex="1" href="/campgrounds"><div class="campground"><h1>Campground</h1></div>
-                <div class="quarter-width">
-                    <div class="snob"><h1>Snob</h1></div></h1>
+            <a class="logo-link" tabindex="0" href="/campgrounds">
+                <div class="logo">
+                    <div class="campground"><h1>Campground</h1></div>
+                    <div class="quarter-width">
+                        <div class="snob"><h1>Snob</h1></div></h1>
+                    </div>
                 </div>
-                </a>
-            </div>
+            </a>
         </div>
         
     <!--Flash alert Success-->   
@@ -33,14 +34,14 @@
         <div class="container-third3 blur-effect not-blurry">
             <nav class="index-nav">
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a tabindex="2" href="#">About Us</a></li>
+                        <li><a tabindex="0" href="#">About Us</a></li>
                     <% if(!currentUser) { %>
-                        <li><a tabindex="3" href="/login">Log In</a></li>
+                        <li><a tabindex="0" href="/login">Log In</a></li>
                         <li><a class="hello right-li" tabindex="4" href="#">Become a Campground Snob</a></li>
                     <% } else { %>
-                        <li><a tabindex="2" href="/campgrounds/new">Rate Your Last Trip</a></li>
-                        <li><a tabindex="3" href="#">Signed In As <strong><%= currentUser.username %></strong></a></li>
-                        <li><a tabindex="4" href="/logout">Log Out</a></li>
+                        <li><a tabindex="0" href="/campgrounds/new">Rate Your Last Trip</a></li>
+                        <li class="signed-in-as">Signed In As <span class="username"><%= currentUser.username %></span></li>
+                        <li><a tabindex="0" href="/logout">Log Out</a></li>
                     <% } %>
                 </ul>
             </nav>
@@ -50,30 +51,43 @@
 <div class="acct-for-abs-positioning">
     <div class="hero-background1 blur-effect not-blurry"></div>
 </div>
-        
+    
+<% if(!currentUser) { %>    
     <aside id="sliding-aside" class="aside">
         <div id="sliding" class="half-width-left">
             <p>That camping trip was</p>
             <div class="fire">
             </div>
-            <a class="btn btn-primary btn-large" tabindex="5" href="/campgrounds/new">Tell us about it!</a>
+            <a class="btn btn-primary btn-large" tabindex="0" href="/campgrounds/new">Tell us about it!</a>
         </div>
-        <div class="half-width-right">
-            <% if(error && error.length > 0) { %>
-                <div class="alert alert-danger" role="alert">
-                    <%= error + '. Please try another username.' %>    
-                </div>
-            <% } else { %>
-                <p>Join Our Ecosystem</p>
-            <% } %>
-            <form id="aside-form" class="aside-form" action="/register" method="POST">
-                <input class="hello" tabindex="6" type="text" name="username" placeholder="Username">
-                <input class="hello" tabindex="7" type="password" name="password" placeholder="Password">
-                <button class="hello btn btn-primary btn-large" tabindex="8">Become a Campground Snob!</button>
-            </form>
-            <i id="dismiss" class="invisible fa fa-angle-right" aria-hidden="true" tabindex="9"></i>
-        </div>
+            <div class="half-width-right">
+                <% if(error && error.length > 0) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error + '. Please try another username.' %>    
+                    </div>
+                <% } else { %>
+                    <p>Join Our Ecosystem</p>
+                <% } %>
+                <form id="aside-form" class="aside-form" action="/register" method="POST">
+                    <input class="hello" tabindex="0" type="text" name="username" placeholder="Username">
+                    <input class="hello" tabindex="0" type="password" name="password" placeholder="Password">
+                    <input id="terms-checkbox" class="hello" type="checkbox" tabindex="0">
+                    <label for="terms-checkbox">I have read and agree to the <a href="#" id="terms-and-conditions" tab-index="0">terms and conditions</a>.</label>
+                    <button class="hello btn btn-primary btn-large" tabindex="0">Become a Campground Snob!</button>
+                </form>
+                <i id="dismiss" class="invisible fa fa-angle-right" aria-hidden="true" tabindex="0"></i>
+            </div>
     </aside>
+<% } else { %>
+    <aside id="sliding-aside" class="collapsed-logged-in">
+        <div id="sliding" class="half-width-left">
+            <p>That camping trip was</p>
+            <div class="fire">
+            </div>
+            <a class="btn btn-primary btn-large" tabindex="0" href="/campgrounds/new">Tell us about it!</a>
+        </div>
+    </aside>    
+<% } %>
 
 
     <main class="blur-effect not-blurry">
@@ -93,9 +107,9 @@
         </div>
     </main>
 
-<script type="text/javascript" language="javascript" src="/scripts/aside.js"></script>
-<script type="text/javascript" language="javascript" src="/scripts/masonry.pkgd.min.js"></script>
-<script type="text/javascript" language="javascript" src="/scripts/imagesLoaded.pkgd.min.js"></script>
-<script type="text/javascript" language="javascript" src="/scripts/masonry-init.js"></script>
+<!--<script type="text/javascript" language="javascript" src="./dist/scripts/aside.js"></script>-->
+<!--<script type="text/javascript" language="javascript" src="./dist/scripts/masonry.pkgd.min.js"></script>-->
+<!--<script type="text/javascript" language="javascript" src="./dist/scripts/masonry-init.js"></script>-->
 
+<script type="text/javascript" language="javascript" src="./dist/scripts/scripts.js"></script>
 <% include ../partials/footer %>

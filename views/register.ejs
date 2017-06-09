@@ -1,51 +1,53 @@
 <!--<% include ./partials/header %>-->
 
-<!--<h1>Sign Up!</h1>-->
 
-<!--<form action="/register" method="POST">-->
-<!--    <input type="text" name="username" placeholder="username">-->
-<!--    <input type="password" name="password" placeholder="password">-->
-<!--    <button>Submit</button>-->
-<!--</form>-->
 
-<!--<% include ./partials/footer %>-->
-
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="container-half1 blur-effect not-blurry">
-            <div class="logo">
-                <a href="/campgrounds"><div class="campground"><h1>Campground</div>
-                <div class="quarter-width">
-                    <div class="snob"><h1>Snob</h1></div></h1>
+<% include ./partials/header %>
+<body id="register">
+<div class="navigation blur-effect not-blurry">
+        <div class="container-third1 blur-effect not-blurry">
+            <a class="logo-link" tabindex="6" href="/campgrounds">
+                <div class="logo">
+                    <div class="campground"><h1>Campground</h1></div>
+                    <div class="quarter-width">
+                        <div class="snob"><h1>Snob</h1></div></h1>
+                    </div>
                 </div>
-                </a>
-            </div>
+            </a>
         </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <% if(!currentUser) { %>
-                    <li><a href="/register">Become a Campground Snob</a></li>
-                <% } else { %>
-                    <li><a href="#">Signed In As <strong><%= currentUser.username %></strong></a></li>
-                    <li><a href="/logout">Log Out</a></li>
-                <% } %>
-            </ul>
+        
+    <!--Flash alert Success-->   
+        <div class="container-third2 blur-effect not-blurry "> 
+            <% if(success && success.length > 0) { %>
+                 <div class="alert alert-success" role="alert">
+                    <%= success %>    
+                </div>
+            <% }; %>
+        </div> 
+    <!--Flash alert Success-->
+        
+        <div class="container-third3 blur-effect not-blurry">
+            <nav class="index-nav">
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a tabindex="7" href="#">About Us</a></li>
+                        <li><a class="right-li" tabindex="8" href="/login">Log In</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
-</nav>
 
- <div class="centered">
-    <div class="half-width-right">
-            <p>Log In</p>
-            <form id="aside-form" class="aside-form" action="/register" method="POST">
-                <input class="hello" tabindex="1" type="text" name="username" placeholder="Username">
-                <input class="hello" tabindex="2" type="password" name="password" placeholder="Password">
-                <button class="hello btn btn-primary btn-large" tabindex="3">Log In!</button>
-            </form>
-            <i id="dismiss" class="invisible fa fa-angle-right" aria-hidden="true" tabindex="4"></i>
-    </div>
+        
+<div class="login-centered">
+<p>Join our ecosystem</p>
+
+<form action="/register" method="POST">
+    <input type="text" tab-index:"1" name="username" placeholder="Username">
+    <input type="password" tab-index:"2" name="password" placeholder="Password">
+    <input id="terms-checkbox" tab-index:"3" class="hello" type="checkbox">
+    <label for="terms-checkbox">I have read and agree to the <a href="#" id="terms-and-conditions" tab-index:"4">terms and conditions</a>.</label>
+    <button tab-index="5">Submit</button>
+</form>
 </div>
 
 
 <% include ./partials/footer %>
-

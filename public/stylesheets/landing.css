@@ -119,22 +119,22 @@ body {
 }
 
 .slideshow li:nth-child(1) { 
-  background-image: url(/assets/nighttime.jpg);
+  background-image: url(/dist/assets/nighttime.jpg);
 }
 .slideshow li:nth-child(2) { 
-  background-image: url(/assets/sayan-nath-165552.jpg);
+  background-image: url(/dist/assets/sayan-nath-165552.jpg);
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 
-  background-image: url(/assets/sunrise-tent.jpg);
+  background-image: url(/dist/assets/sunrise-tent.jpg);
   animation-delay: 20s; 
 }
 .slideshow li:nth-child(4) { 
-  background-image: url(/assets/sunset-campfire.jpg);
+  background-image: url(/dist/assets/sunset-campfire.jpg);
   animation-delay: 30s; 
 }
 .slideshow li:nth-child(5) { 
-  background-image: url(/assets/breakfast.jpg);
+  background-image: url(/dist/assets/breakfast.jpg);
   animation-delay: 40s; 
 }
 

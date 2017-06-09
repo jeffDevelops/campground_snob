@@ -1,6 +1,11 @@
   var container = document.querySelector('#masonry');
-  var masonry = new Masonry(container, {
-    itemSelector: '.item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true,
+  
+  window.addEventListener('load', function() {
+    var masonry = new Masonry(container, {
+      itemSelector: '.item',
+      columnWidth: '.grid-sizer',
+      percentPosition: true,
+    }); 
   });
+  
+  

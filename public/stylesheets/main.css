@@ -1,15 +1,14 @@
 html {
-    background-color: #333;
+    background-color: #fff;
 }
 
-body {
+#index body {
     height: 100%;
-    background-color: #fff;
     overflow-x: hidden;
     max-width: 100%;
-    -webkit-box-shadow: inset 0 0 300px #777;
-    -moz-box-shadow: inset 0 0 300px #777;
-    box-shadow: inset 0 0 300px #777;
+    -webkit-box-shadow: inset 0 0 300px #aaa;
+    -moz-box-shadow: inset 0 0 300px #aaa;
+    box-shadow: inset 0 0 300px #aaa;
 }
 
 *:focus {
@@ -20,7 +19,8 @@ body {
     text-align: center;
     margin-bottom: 0;
     background-color: #FF443B;
-    border: 3px solid #fff;
+    padding: 5px auto 5px auto;
+    border: none;
     border-radius: 7px;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
@@ -30,7 +30,6 @@ body {
 }
 
 .navigation {
-    overflow: hidden;
     margin-top: -15px;
     padding-top: 10px;
     height: 65px;
@@ -95,9 +94,12 @@ body {
     transition: transform .3s;
 }
 
-.logo:hover, 
-.logo:focus,
-.logo:active {
+.logo-link:hover > .logo, 
+.logo-link:focus > .logo,
+.logo-link:active > .logo {
+    padding: 0px 0 0 7vw;
+    font-size: 2em;
+    width: 60%;
     -webkit-transform: translate(5px) scale(0.7);
     -moz-transform: translate(5px) scale(0.7);
     -ms-transform: translate(5px) scale(0.7);
@@ -110,14 +112,16 @@ body {
     transition: transform .5s;
 }
 
-.logo a {
+.logo-link {
     color: #fff;
 }
 
-.logo a:hover,
-.logo a:focus
-.logo a:active {
+.logo-link:hover,
+.logo-link:focus,
+.logo-link:active {
     text-decoration: none;
+    outline: none;
+    color: #fff;
 }
 
 a:-webkit-any-link{
@@ -174,6 +178,7 @@ a:-webkit-any-link{
     font-weight: 700;
     letter-spacing: 0.05em;
     padding: 15px 1vw;
+    text-shadow: none;
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
     -ms-transition: all .5s;
@@ -181,16 +186,39 @@ a:-webkit-any-link{
     transition: all .5s;
 }
 
-.nav li a:hover {
+.nav li a:hover,
+.nav li a:active,
+.nav li a:focus {
+    outline: none;
+    text-shadow: 0 0 200px #fff,
+                0 0 100px #fff,
+                0 0 20px #fff;
     color: #fff;
     background-color: transparent;
     letter-spacing: 0.05em;
     text-align: center;
+    padding: 15px 1vw;
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
     -ms-transition: all .5s;
     -o-transition: all .5s;   
     transition: all .5s;
+}
+
+.signed-in-as {
+    color: #fff;
+    padding: 15px 2vw 0 5vw;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.username {
+    padding-left: 1vw;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    text-shadow: 0 0 200px #fff,
+                0 0 100px #fff,
+                0 0 20px #fff;
 }
 
 .acct-for-abs-positioning {
@@ -199,7 +227,7 @@ a:-webkit-any-link{
 }
 
 .hero-background1 {
-    background-image: url('/assets/filtered-fire.jpg');
+    background-image: url('/dist/assets/filtered-fire-opt.jpg');
     background-size: cover;
     background-position: right center;
     background-repeat: no-repeat;
@@ -212,7 +240,7 @@ a:-webkit-any-link{
 .aside {
     clear: both;
     position: absolute;
-    top: 125px;
+    top: 120px;
     right: 0;
     width: 70%;
     height: 350px;
@@ -225,11 +253,27 @@ a:-webkit-any-link{
     transition: all 1.5s;
 }
 
+.collapsed-logged-in {
+    clear: both;
+    position: absolute;
+    top: 120px;
+    right: 0;
+    width: 35%;
+    height: 350px;
+    background-color: #333;
+    border-radius: 7px 0 0 7px;
+    -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -ms-transition: all 1.5s;
+    -o-transition: all 1.5s;
+    transition: all 1.5s;    
+}
+
 .centered {
     clear: both;
     position: fixed;
     z-index: 10;
-    top: 125px;
+    top: 120px;
     right: 427px;
     width: 33%;
     height: 350px;
@@ -243,6 +287,18 @@ a:-webkit-any-link{
     -ms-transition: all 1.5s;
     -o-transition: all 1.5s;
     transition: all 1.5s;
+}
+
+.login-centered {
+    clear: both;
+    position: absolute;
+    top: 120px;
+    right: 427px;
+    width: 33%;
+    height: 350px;
+    background-color: #333;
+    border-radius: 7px;
+    box-shadow: 0 0 200px #222;
 }
 
 .aside .half-width-left {
@@ -263,6 +319,15 @@ a:-webkit-any-link{
     height: 250px;
     margin: 50px 0 0 40px;
     border-right: 1px solid #fff;
+}
+
+.collapsed-logged-in .half-width-left {
+    display: block;
+    position: relative;
+    float: left;
+    width: 70%;
+    height: 250px;
+    margin: 50px 0 0 40px;
 }
 
 /*Class added to slide left side of aside away*/
@@ -339,6 +404,10 @@ a:-webkit-any-link{
     transition: all .6s;
 }
 
+.logged-in-collapsed {
+    width: 1px;
+}
+
 .centered .half-width-right {
     float: left;
     height: 250px;
@@ -361,7 +430,7 @@ a:-webkit-any-link{
 
 .fire {
     display: block;
-    background-image: url('/assets/campfire_icon.svg');
+    background-image: url('/dist/assets/campfire_icon.svg');
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: contain;
@@ -369,6 +438,10 @@ a:-webkit-any-link{
     width: 30%;
     min-width: 100px;
     margin: 0 auto 0 90px;
+}
+
+.collapsed-logged-in .fire {
+    margin: 0 auto 25px auto;
 }
 
 .fire:hover {
@@ -439,6 +512,18 @@ a:-webkit-any-link{
     min-width: 254px;
 }
 
+.collapsed-logged-in .half-width-left p {
+    text-align: center;
+    margin: 0 auto 15px auto;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 27px;
+    min-width: 254px;
+}
+
 .aside .half-width-left p {
     width: 85%;
     margin-bottom: 15px;
@@ -446,6 +531,11 @@ a:-webkit-any-link{
 }
 
 .centered .half-width-left p {
+    width: 85%;
+    min-width: 281px;
+}
+
+.collapsed-logged-in .half-width-left p {
     width: 85%;
     min-width: 281px;
 }
@@ -492,11 +582,20 @@ a:-webkit-any-link{
   padding: 6px 6px 6px 0;
 }
 
-.aside a {
-    width: 85%;
-    left: 0;
+.collapsed-logged-in a {    
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  background-color: transparent;
+  color: #fff;
+  font-family: 'Yellowtail', sans-serif;
+  font-size: 1.6em;
+  border: 3px solid #fff;
+  text-shadow: none;
+  padding: 6px 6px 6px 0;
 }
 
+.aside a,
 .centered a {
     width: 85%;
     left: 0;
@@ -528,32 +627,49 @@ a:-webkit-any-link{
 .aside a:active,
 .aside button:active {
   background-color: #fff;
-  color: #222;
+  color: #333;
   border: 4px solid white;
 }
 
 .centered button:active {
   background-color: #fff;
-  color: #222;
-  border: 4px solid white;
-}
-
-.aside a:focus,
-.aside button:focus {
-  background-color: #06B245;
-  color: #222;
+  color: #333;
   border: 4px solid white;
 }
 
 .centered button:focus,
 .centered button:active {
   background-color: #fff;
-  color: #222;
-  border: 4px solid #06B245;
+  color: #333;
+  border: 4px solid #fff;
   outline: none;
 }
 
-input {
+.collapsed-logged-in a:hover,
+.collapsed-logged-in a:focus,
+.collapsed-logged-in a:active {
+  background-color: #fff;
+  color: #333;
+  border: 4px solid #fff;
+  outline: none;
+}
+
+.btn-primary:active:focus {
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    border: 4px solid #fff;
+}
+
+.btn-primary:focus {
+    outline: none;
+    background-color: #333;
+    border: 4px solid #fff;
+}
+
+
+input[type="text"],
+input[type="password"]{
     display: block;
     height: 25px;
     width: 100%;
@@ -568,10 +684,49 @@ input {
     background-color: #fff;
 }
 
-input:focus {
-    border: 3px solid #ff4232;
+input[type="text"]:focus,
+input[type="password"]:focus {
     border-radius: 4px;
+    box-shadow: 0 0 20px #fff;
 }
+
+label {
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.7em;
+    font-weight: 200;
+    padding: 0 0 0 5px;
+    display: inline-block;
+}
+
+label a#terms-and-conditions {
+    position: static;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    display: inline;
+    padding: 0;
+}
+
+label a#terms-and-conditions:focus,
+label a#terms-and-conditions:hover,
+label a#terms-and-conditions:active {
+    outline: none;
+    text-shadow: 0 0 100px #fff,
+                0 0 20px #fff;
+    background-color: transparent;
+    color: #fff;
+}
+
+input#terms-checkbox:hover,
+input#terms-checkbox:focus {
+    background-color: #333;
+    outline: none; 
+    box-shadow: 0 0 100px #fff,
+                0 0 20px #fff;
+}
+
 
 /*Default class for elements that will get blurred*/
 .not-blurry {
@@ -632,10 +787,6 @@ input:focus {
     transform: translate(0px, 0);
 }
 
-.visible:focus {
-    color: #ff4232;
-}
-
 .invisible {
     cursor: default;
     opacity: 0;
@@ -651,7 +802,11 @@ input:focus {
 }
 
 .visible:hover,
-.visible:focus {
+.visible:focus,
+.visible:active {
+    text-shadow: 0 0 200px #fff,
+                0 0 100px #fff,
+                0 0 20px #fff;
     -webkit-transform: translate(10px, 0);
     -moz-transform: translate(10px, 0);
     -ms-transform: translate(10px, 0);
@@ -708,13 +863,21 @@ h3 {
     transition: filter .2s ease-out;  
 }
 
-#index .item a:hover img {
+#index .item a:hover img,
+#index .item a:active img,
+#index .item a:focus img {
     -webkit-filter: brightness(80%) blur(1px);
     filter: brightness(80%) blur(1px);
     -webkit-transition: -webkit-filter .2s ease-in;
     -moz-transition: filter .3s ease-in;
     -o-transition: filter .3s ease-in;
     transition: filter .3s ease-in;      
+}
+
+#index .item a:hover,
+#index .item a:active,
+#index .item a:focus {
+    outline: none;
 }
 
 #index .item a h4,
@@ -735,7 +898,11 @@ h3 {
 }
 
 #index .item a:hover h4,
-#index .item a:hover p.description {
+#index .item a:hover p.description,
+#index .item a:active h4,
+#index .item a:active p.description,
+#index .item a:focus h4,
+#index .item a:focus p.description {
     visibility: visible;
     opacity: 1;
     position: absolute;
@@ -795,6 +962,109 @@ h3 {
 #show .thumbnail img {
     width: 100%;
     height: 100%;
+}
+
+#login, 
+#register,
+#new {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('/dist/assets/sayan-nath-165552.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#login p,
+#register p,
+#new p {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 27px;
+    margin: 60px auto 20px auto;
+}
+
+#login form,
+#register form,
+#new form {
+    width: 70%; 
+    margin: 0 auto;
+}
+
+#login button,
+#register button,
+#new button {
+    background-color: transparent;
+    color: #fff;
+    font-family: 'Yellowtail', sans-serif;
+    font-size: 1.6em;
+    border: 3px solid #fff;
+    text-shadow: none;
+    margin: 20px auto;
+    padding: 6px 0;
+    width: 100%;
+}
+
+#login button:hover,
+#login button:active,
+#login button:focus
+#register button:hover,
+#register button:active,
+#register button:focus,
+#new button:hover,
+#new button:active,
+#new button:focus {
+    background-color: #fff;  
+    color: #333;
+    outline: none;
+}
+
+#login .alert.alert-danger,
+#register .alert.alert-danger,
+#new alert.alert-danger {
+    width: 70%;
+    margin: 40px auto 20px auto;
+    border: none;
+}
+
+#register label a#terms-and-conditions {
+    color: #fff;
+    position: static;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    display: inline;
+    padding: 0;
+}
+
+#terms-and-conditions {
+    color: #fff;
+}
+
+#register label a#terms-and-conditions:focus,
+#register label a#terms-and-conditions:hover,
+#register label a#terms-and-conditions:active {
+    outline: none;
+    text-shadow: 0 0 100px #fff,
+                0 0 20px #fff;
+    background-color: transparent;
+    color: #fff;
+}
+
+#register input#terms-checkbox:hover,
+#register input#terms-checkbox:focus {
+    background-color: #333;
+    outline: none; 
+    box-shadow: 0 0 100px #fff,
+                0 0 20px #fff;
 }
 
 .campground-title:hover {

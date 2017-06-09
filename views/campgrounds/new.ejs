@@ -1,5 +1,40 @@
 <% include ../partials/header  %>
 
+<body id="new"
+
+    <div class="navigation blur-effect not-blurry">
+        <div class="container-third1 blur-effect not-blurry">
+            <a class="logo-link" tabindex="1" href="/campgrounds">
+                <div class="logo">
+                    <div class="campground"><h1>Campground</h1></div>
+                    <div class="quarter-width">
+                        <div class="snob"><h1>Snob</h1></div></h1>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+    <!--Flash alert Success-->   
+        <div class="container-third2 blur-effect not-blurry "> 
+            <% if(success && success.length > 0) { %>
+                 <div class="alert alert-success" role="alert">
+                    <%= success %>    
+                </div>
+            <% }; %>
+        </div> 
+    <!--Flash alert Success-->
+        
+        <div class="container-third3 blur-effect not-blurry">
+            <nav class="index-nav">
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a tabindex="2" href="#">About Us</a></li>
+                        <li class="signed-in-as">Signed In As <span class="username"><%= currentUser.username %></span></li>
+                        <li><a tabindex="4" href="/logout">Log Out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
 <div class="container">
     <div class="row">
         <h1 style="text-align: center;">Create a New Campground</h1>

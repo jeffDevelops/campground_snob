@@ -1,4 +1,4 @@
-var formElements = document.querySelectorAll('.hello');
+var formElements = document.querySelectorAll('.goodbye');
 var elementsToBeBlurred = document.querySelectorAll('.not-blurry');
 var slidingAside = document.getElementById('sliding-aside');
 var disappearingLeftSide = document.getElementById('sliding');
@@ -28,8 +28,6 @@ var blurRestOfPage = function(event) {
             var keyPress = event.which || event.keyCode;
             if(event.shiftKey && (keyPress === 9)) {
                 resetAside();
-            } else {
-                console.log("SUCKS TO SUCK");
             }
         });
     }
