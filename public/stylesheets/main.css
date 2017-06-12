@@ -970,12 +970,14 @@ h3 {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url('/dist/assets/sayan-nath-165552.jpg');
+    background-image: url('./dist/assets/sayan-nath-165552.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     height: 100%;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 #login p,
@@ -1081,4 +1083,16 @@ h3 {
 
 .delete-form {
     display: inline;
+}
+
+#new .login-centered {
+    clear: both;
+    position: absolute;
+    top: 120px;
+    right: 427px;
+    width: 50%;
+    height: 350px;
+    background-color: #333;
+    border-radius: 7px;
+    box-shadow: 0 0 200px #222;
 }

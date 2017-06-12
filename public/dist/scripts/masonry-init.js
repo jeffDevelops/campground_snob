@@ -1,0 +1,1 @@
+var container=document.querySelector("#masonry");window.addEventListener("load",function(){new Masonry(container,{itemSelector:".item",columnWidth:".grid-sizer",percentPosition:!0})});

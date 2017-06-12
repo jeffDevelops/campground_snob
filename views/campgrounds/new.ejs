@@ -1,10 +1,17 @@
-<% include ../partials/header  %>
+<!DOCTYPE html>
+<html id="new">
+    <head>
+        <title>Campground Snob</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Open+Sans:300,400,600|Yellowtail" rel="stylesheet"> 
+        <link rel="stylesheet" type="text/css" href="/./dist/stylesheets/main.css" />
+    </head>
+    <body>
 
-<body id="new"
-
-    <div class="navigation blur-effect not-blurry">
+   <div class="navigation blur-effect not-blurry">
         <div class="container-third1 blur-effect not-blurry">
-            <a class="logo-link" tabindex="1" href="/campgrounds">
+            <a class="logo-link" tabindex="0" href="/campgrounds">
                 <div class="logo">
                     <div class="campground"><h1>Campground</h1></div>
                     <div class="quarter-width">
@@ -27,18 +34,24 @@
         <div class="container-third3 blur-effect not-blurry">
             <nav class="index-nav">
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a tabindex="2" href="#">About Us</a></li>
+                        <li><a tabindex="0" href="#">About Us</a></li>
+                    <% if(!currentUser) { %>
+                        <li><a tabindex="0" href="/login">Log In</a></li>
+                        <li><a class="hello right-li" tabindex="4" href="#">Become a Campground Snob</a></li>
+                    <% } else { %>
+                        <li><a tabindex="0" href="/campgrounds/new">Rate Your Last Trip</a></li>
                         <li class="signed-in-as">Signed In As <span class="username"><%= currentUser.username %></span></li>
-                        <li><a tabindex="4" href="/logout">Log Out</a></li>
+                        <li><a tabindex="0" href="/logout">Log Out</a></li>
+                    <% } %>
                 </ul>
             </nav>
         </div>
     </div>
     
-<div class="container">
+<div class="login-centered">
     <div class="row">
         <h1 style="text-align: center;">Create a New Campground</h1>
-        <div style="width: 30%; margin: 35px auto;">
+        <div>
             <form action="/campgrounds" method="POST">
                 <div class="form-group">
                     <input class="form-control" type="text" name="name" placeholder="Name">
